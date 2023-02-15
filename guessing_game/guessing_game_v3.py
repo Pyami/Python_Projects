@@ -7,7 +7,13 @@ number = 0
 
 
 def get_guess(num):
-    print("Hi")
+    guess = int(input("What's your guess: "))
+    if guess > num:
+        print("Too high... a bit lower maybe...")
+    elif guess < num:
+        print("Too low... a bit higher maybe...")
+    else:
+        print("Congratulations! You guessed it.")
 
 
 def start_game():
@@ -16,11 +22,12 @@ def start_game():
     while chances > 0:
         get_guess(number)
         chances = chances - 1
+        print(f"You have {chances} left")
 
 
 def main():
     print("Hi! You get three chances to guess the right number")
-    k = input("Are you get ready? (y/n) >> ")
+    k = input("Are you ready? (y/n) >> ")
     if k.lower() in yes:
         print("Get ready!")
         start_game()
